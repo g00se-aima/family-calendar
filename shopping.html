@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shopping-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="shopping-wrapper">
+            <header class="shopping-header">
+                <a href="index.html" class="back-btn">← Back</a>
+                <h1 class="shopping-title">🛒 Shopping List</h1>
+                <div class="clock-container">
+                    <div class="date-display" id="dateDisplay">--</div>
+                    <div class="time-display" id="timeDisplay">--:--:--</div>
+                </div>
+            </header>
+
+            <main class="shopping-content" id="shoppingContent">
+                <!-- Categories will be rendered here -->
+            </main>
+
+            <div class="bottom-actions">
+                <button class="add-category-btn" onclick="shoppingManager.openCategoryModal()">+ Add Category</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="shoppingManager.closeCategoryModal()">&times;</span>
+            <h2>Add New Category</h2>
+            <div class="modal-form">
+                <div class="form-group">
+                    <label>Category Name:</label>
+                    <input type="text" id="categoryName" placeholder="e.g., Pharmacy" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Emoji (optional):</label>
+                    <input type="text" id="categoryEmoji" placeholder="e.g., 💊" maxlength="2">
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn-cancel" onclick="shoppingManager.closeCategoryModal()">Cancel</button>
+                    <button class="btn-confirm" onclick="shoppingManager.addCategory()">Add Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="shopping-script.js"></script>
+</body>
+</html>

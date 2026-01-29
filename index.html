@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Planer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="flowers-decoration flowers-top-left">🌸</div>
+    <div class="flowers-decoration flowers-top-right">🌼</div>
+    <div class="flowers-decoration flowers-bottom-left">🌺</div>
+    <div class="flowers-decoration flowers-bottom-right">🌻</div>
+
+    <div class="container">
+        <div class="content-wrapper">
+            <header class="main-header">
+                <h1 class="main-title">Family Planer</h1>
+                <p class="subtitle">G Ö P F E R T</p>
+                <div class="clock-container">
+                    <div class="date-display" id="dateDisplay">--</div>
+                    <div class="time-display" id="timeDisplay">--:--:--</div>
+                </div>
+            </header>
+
+            <div class="buttons-section">
+                <div class="section-label">Family Members</div>
+                <div class="family-buttons-grid">
+                    <button class="family-member-btn btn-toby" onclick="selectMember('Toby')">
+                        <span class="member-icon">👨</span>
+                        <span class="member-name">Toby</span>
+                        <span class="task-badge task-badge-red" id="badge-Toby-recurring">0</span>
+                        <span class="task-badge task-badge-green" id="badge-Toby-regular">0</span>
+                    </button>
+                    <button class="family-member-btn btn-sharmila" onclick="selectMember('Sharmila')">
+                        <span class="member-icon">👩</span>
+                        <span class="member-name">Sharmila</span>
+                        <span class="task-badge task-badge-red" id="badge-Sharmila-recurring">0</span>
+                        <span class="task-badge task-badge-green" id="badge-Sharmila-regular">0</span>
+                    </button>
+                    <button class="family-member-btn btn-aiden" onclick="selectMember('Aiden')">
+                        <span class="member-icon">👦</span>
+                        <span class="member-name">Aiden</span>
+                        <span class="task-badge task-badge-red" id="badge-Aiden-recurring">0</span>
+                        <span class="task-badge task-badge-green" id="badge-Aiden-regular">0</span>
+                    </button>
+                    <button class="family-member-btn btn-liah" onclick="selectMember('Liah')">
+                        <span class="member-icon">👧</span>
+                        <span class="member-name">Liah</span>
+                        <span class="task-badge task-badge-red" id="badge-Liah-recurring">0</span>
+                        <span class="task-badge task-badge-green" id="badge-Liah-regular">0</span>
+                    </button>
+                    <button class="family-member-btn btn-llewyn" onclick="selectMember('Llewyn')">
+                        <span class="member-icon">👦</span>
+                        <span class="member-name">Llewyn</span>
+                        <span class="task-badge task-badge-red" id="badge-Llewyn-recurring">0</span>
+                        <span class="task-badge task-badge-green" id="badge-Llewyn-regular">0</span>
+                    </button>
+                    <button class="family-member-btn btn-elaine" onclick="selectMember('Elaine')">
+                        <span class="member-icon">👩</span>
+                        <span class="member-name">Elaine</span>
+                        <span class="task-badge task-badge-red" id="badge-Elaine-recurring">0</span>
+                        <span class="task-badge task-badge-green" id="badge-Elaine-regular">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="special-buttons-section">
+                <button class="special-btn shopping-btn" onclick="selectAction('shopping')">
+                    <span class="special-icon">🛒</span>
+                    <span class="special-text">Shopping List</span>
+                    <span class="task-badge task-badge-red" id="badge-shopping-urgent">0</span>
+                    <span class="task-badge task-badge-green" id="badge-shopping-normal">0</span>
+                </button>
+                <button class="special-btn tasks-btn" onclick="selectAction('tasks')">
+                    <span class="special-icon">✅</span>
+                    <span class="special-text">Tasks</span>
+                    <span class="task-badge task-badge-green" id="badge-tasks-count">0</span>
+                </button>
+            </div>
+
+            <div class="floral-accent">
+                <span class="flower-accent">🌹</span>
+                <span class="flower-accent">🌷</span>
+                <span class="flower-accent">🌹</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

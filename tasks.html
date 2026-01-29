@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tasks-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tasks-wrapper">
+            <header class="tasks-header">
+                <a href="index.html" class="back-btn">← Back</a>
+                <h1 class="tasks-title">✅ Tasks</h1>
+                <div class="clock-container">
+                    <div class="date-display" id="dateDisplay">--</div>
+                    <div class="time-display" id="timeDisplay">--:--:--</div>
+                </div>
+            </header>
+
+            <main class="tasks-content">
+                <!-- Werkstatt Category -->
+                <section class="tasks-category">
+                    <h2 class="category-title">🔧 Werkstatt</h2>
+                    
+                    <div class="add-item-form">
+                        <input type="text" class="item-input" placeholder="Add task..." data-category="Werkstatt">
+                        <button class="add-btn" onclick="taskManager.addItem('Werkstatt')">Add</button>
+                    </div>
+
+                    <div class="items-list" id="items-Werkstatt">
+                        <p class="empty-message">No tasks yet</p>
+                    </div>
+                </section>
+
+                <!-- Auto Category -->
+                <section class="tasks-category">
+                    <h2 class="category-title">🚗 Auto</h2>
+                    
+                    <div class="add-item-form">
+                        <input type="text" class="item-input" placeholder="Add task..." data-category="Auto">
+                        <button class="add-btn" onclick="taskManager.addItem('Auto')">Add</button>
+                    </div>
+
+                    <div class="items-list" id="items-Auto">
+                        <p class="empty-message">No tasks yet</p>
+                    </div>
+                </section>
+
+                <!-- Haus Category -->
+                <section class="tasks-category">
+                    <h2 class="category-title">🏠 Haus</h2>
+                    
+                    <div class="add-item-form">
+                        <input type="text" class="item-input" placeholder="Add task..." data-category="Haus">
+                        <button class="add-btn" onclick="taskManager.addItem('Haus')">Add</button>
+                    </div>
+
+                    <div class="items-list" id="items-Haus">
+                        <p class="empty-message">No tasks yet</p>
+                    </div>
+                </section>
+
+                <!-- Garten Category -->
+                <section class="tasks-category">
+                    <h2 class="category-title">🌿 Garten</h2>
+                    
+                    <div class="add-item-form">
+                        <input type="text" class="item-input" placeholder="Add task..." data-category="Garten">
+                        <button class="add-btn" onclick="taskManager.addItem('Garten')">Add</button>
+                    </div>
+
+                    <div class="items-list" id="items-Garten">
+                        <p class="empty-message">No tasks yet</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="tasks-script.js"></script>
+</body>
+</html>

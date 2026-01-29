@@ -1,0 +1,721 @@
+/* Member Page Styles */
+
+.member-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: 0 25px 70px rgba(219, 112, 147, 0.25);
+    animation: slideUp 0.8s ease;
+}
+
+/* Member Header */
+.member-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 2px solid rgba(219, 112, 147, 0.2);
+    padding-bottom: 30px;
+}
+
+.back-btn {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff69b4 0%, #db7093 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+}
+
+.member-title {
+    font-size: 48px;
+    background: linear-gradient(135deg, #ff69b4 0%, #db7093 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 20px 0 20px 0;
+    font-weight: 800;
+}
+
+/* Member Content */
+.member-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Section Styles */
+.section-title {
+    font-size: 24px;
+    color: #db7093;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Tasks Section */
+.tasks-section,
+.recurring-section,
+.dates-section {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 30px;
+    border-radius: 25px;
+    border: 2px solid rgba(219, 112, 147, 0.2);
+}
+
+/* Add Task Form */
+.add-task-form,
+.add-recurring-form,
+.add-date-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.add-task-form input,
+.add-recurring-form input,
+.add-date-form input {
+    flex: 1;
+    min-width: 150px;
+    padding: 12px 18px;
+    border: 2px solid rgba(219, 112, 147, 0.3);
+    border-radius: 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.add-task-form input:focus,
+.add-recurring-form input:focus,
+.add-date-form input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+}
+
+.add-recurring-form select {
+    padding: 12px 18px;
+    border: 2px solid rgba(219, 112, 147, 0.3);
+    border-radius: 12px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-recurring-form select:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+}
+
+.add-date-form input[type="date"] {
+    max-width: 150px;
+}
+
+.add-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ff69b4 0%, #db7093 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.add-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+}
+
+.add-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Tasks List */
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(219, 112, 147, 0.2);
+    transition: all 0.3s ease;
+}
+
+.task-item:hover {
+    background: rgba(255, 105, 180, 0.05);
+    border-color: #ff69b4;
+}
+
+.task-checkbox {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    cursor: pointer;
+    accent-color: #ff69b4;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Recurring Tasks List */
+.recurring-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Today's Tasks Section */
+.todays-tasks-section {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 152, 0, 0.3);
+    margin-bottom: 30px;
+    order: -1;
+}
+
+.todays-tasks-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff9800;
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+
+.todays-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.todays-task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #ff9800;
+    transition: all 0.3s ease;
+}
+
+.todays-task-item:hover {
+    background: rgba(255, 152, 0, 0.05);
+}
+
+.todays-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #ff9800;
+    flex-shrink: 0;
+}
+
+.todays-task-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.todays-task-text {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+}
+
+.todays-task-schedule {
+    font-size: 11px;
+    color: #999;
+    font-style: italic;
+}
+
+.recurring-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid;
+    transition: all 0.3s ease;
+}
+
+.recurring-item.paused {
+    opacity: 0.6;
+    background: rgba(200, 200, 200, 0.1);
+}
+
+.recurring-item.daily {
+    border-color: #4facfe;
+    background: rgba(79, 172, 254, 0.05);
+}
+
+.recurring-item.weekly {
+    border-color: #f093fb;
+    background: rgba(240, 147, 251, 0.05);
+}
+
+.recurring-item.monthly {
+    border-color: #fa709a;
+    background: rgba(250, 112, 154, 0.05);
+}
+
+.recurring-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.recurring-text {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+.recurring-schedule {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+.recurring-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(219, 112, 147, 0.2);
+    color: #db7093;
+    text-transform: uppercase;
+}
+
+/* Recurring Options */
+.recurring-options {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid rgba(219, 112, 147, 0.2);
+    margin-bottom: 15px;
+}
+
+.recurring-options label:first-of-type {
+    display: block;
+    font-weight: 700;
+    color: #db7093;
+    margin-bottom: 12px;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: white;
+    border: 2px solid rgba(219, 112, 147, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 13px;
+    color: #333;
+}
+
+.day-checkbox input[type="checkbox"] {
+    margin-right: 6px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: #ff69b4;
+}
+
+.day-checkbox:hover {
+    border-color: #ff69b4;
+    background: rgba(255, 105, 180, 0.05);
+}
+
+.day-checkbox input[type="checkbox"]:checked + {
+    content: '';
+}
+
+#weeklyOptions select,
+#monthlyOptions input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid rgba(219, 112, 147, 0.3);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#weeklyOptions select:focus,
+#monthlyOptions input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+}
+
+/* Important Dates List */
+.dates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.date-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(219, 112, 147, 0.2);
+    transition: all 0.3s ease;
+}
+
+.date-item:hover {
+    background: rgba(255, 105, 180, 0.05);
+    border-color: #ff69b4;
+}
+
+.date-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.date-name {
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.date-info {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.date-status {
+    font-size: 14px;
+    color: #db7093;
+    font-weight: 600;
+    margin: 0 20px;
+    text-align: right;
+    min-width: 100px;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    background: #f44336;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Recurring Actions Container */
+.recurring-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Pause Button */
+.pause-btn {
+    background: rgba(255, 152, 0, 0.1);
+    color: #ff9800;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pause-btn:hover {
+    background: #ff9800;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+/* Resume Button */
+.resume-btn {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.resume-btn:hover {
+    background: #4caf50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* Empty Message */
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Chores Section */
+.chores-section {
+    margin-bottom: 30px;
+}
+
+.chores-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.chore-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border: 2px solid rgba(219, 112, 147, 0.3);
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 13px;
+    min-width: 100px;
+}
+
+.chore-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.chore-name {
+    color: #333;
+}
+
+.chore-btn:hover {
+    border-color: #ff69b4;
+    background: rgba(255, 105, 180, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+}
+
+.chore-btn:active {
+    transform: translateY(0);
+}
+
+.current-chore-info {
+    padding: 12px;
+    background: rgba(219, 112, 147, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #db7093;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Media Time Section */
+.media-time-section {
+    margin-bottom: 30px;
+}
+
+.media-time-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.media-icon {
+    font-size: 32px;
+    display: block;
+}
+
+.media-text {
+    display: block;
+}
+
+.media-time-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.media-time-btn:active {
+    transform: translateY(-1px);
+}
+
+.special-member-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.untis-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.untis-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .member-wrapper {
+        padding: 25px;
+    }
+
+    .member-title {
+        font-size: 36px;
+    }
+
+    .back-btn {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .add-task-form,
+    .add-recurring-form,
+    .add-date-form {
+        flex-direction: column;
+    }
+
+    .add-task-form input,
+    .add-recurring-form input,
+    .add-recurring-form select,
+    .add-date-form input,
+    .add-btn {
+        width: 100%;
+    }
+
+    .date-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .date-status {
+        margin: 10px 0 0 0;
+        text-align: left;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-wrapper {
+        padding: 20px;
+        border-radius: 25px;
+    }
+
+    .member-title {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .tasks-section,
+    .recurring-section,
+    .dates-section {
+        padding: 20px;
+    }
+
+    .task-item,
+    .recurring-item,
+    .date-item {
+        padding: 12px;
+    }
+
+    .task-checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
+    .task-text,
+    .recurring-text,
+    .date-name {
+        font-size: 14px;
+    }
+}

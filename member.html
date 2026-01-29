@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Tasks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="member-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="member-wrapper">
+            <header class="member-header">
+                <a href="index.html" class="back-btn">← Back</a>
+                <h1 class="member-title" id="memberTitle">--</h1>
+                <div id="specialActions"></div>
+                <div class="clock-container">
+                    <div class="date-display" id="dateDisplay">--</div>
+                    <div class="time-display" id="timeDisplay">--:--:--</div>
+                </div>
+            </header>
+
+            <main class="member-content">
+                <!-- Today's Tasks (Due Today) - Top Priority -->
+                <section class="todays-tasks-section">
+                    <h2 class="todays-tasks-title">📌 Due Today</h2>
+                    <div class="todays-list" id="todaysList">
+                        <p class="empty-message">No tasks due today</p>
+                    </div>
+                </section>
+
+                <!-- Chores Section (For specific members only) -->
+                <section id="choresSection" class="chores-section" style="display: none;">
+                    <h2 class="section-title">🧹 Weekly Chores</h2>
+                    <div class="chores-container" id="choresContainer">
+                        <button class="chore-btn dishes-btn" onclick="taskManager.assignChore('Dishes')">
+                            <span class="chore-icon">🍽️</span>
+                            <span class="chore-name">Dishes</span>
+                        </button>
+                        <button class="chore-btn trash-btn" onclick="taskManager.assignChore('Trash')">
+                            <span class="chore-icon">🗑️</span>
+                            <span class="chore-name">Trash</span>
+                        </button>
+                        <button class="chore-btn bathroom-btn" onclick="taskManager.assignChore('Bathroom')">
+                            <span class="chore-icon">🚿</span>
+                            <span class="chore-name">Bathroom</span>
+                        </button>
+                    </div>
+                    <div id="currentChoreInfo" class="current-chore-info"></div>
+                </section>
+
+                <!-- Media Time Section (For specific members only) -->
+                <section id="mediaTimeSection" class="media-time-section" style="display: none;">
+                    <button class="media-time-btn" onclick="taskManager.checkMediaTime()">
+                        <span class="media-icon">🎮</span>
+                        <span class="media-text">Media Time</span>
+                    </button>
+                </section>
+
+                <!-- Tasks Section -->
+                <section class="tasks-section">
+                    <h2 class="section-title">📋 Tasks</h2>
+                    
+                    <!-- Add Task Form -->
+                    <div class="add-task-form">
+                        <input type="text" id="taskInput" placeholder="Add a new task...">
+                        <button onclick="addTask()" class="add-btn">Add Task</button>
+                    </div>
+
+                    <!-- Tasks Checklist -->
+                    <div class="tasks-list" id="tasksList">
+                        <p class="empty-message">No tasks yet. Add one to get started!</p>
+                    </div>
+                </section>
+
+                <!-- Recurring Tasks Section -->
+                <section class="recurring-section">
+                    <h2 class="section-title">🔄 Recurring Tasks</h2>
+                    
+                    <!-- Add Recurring Task Form -->
+                    <div class="add-recurring-form">
+                        <input type="text" id="recurringInput" placeholder="Add a recurring task...">
+                        <select id="recurringType" onchange="updateRecurringOptions()">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                        <button onclick="addRecurringTask()" class="add-btn">Add Recurring</button>
+                    </div>
+
+                    <!-- Day/Date Selection Options -->
+                    <div id="dailyOptions" class="recurring-options">
+                        <label>Select days of the week:</label>
+                        <div class="days-grid">
+                            <label class="day-checkbox">
+                                <input type="checkbox" name="day" value="0"> Sun
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" name="day" value="1"> Mon
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" name="day" value="2"> Tue
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" name="day" value="3"> Wed
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" name="day" value="4"> Thu
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" name="day" value="5"> Fri
+                            </label>
+                            <label class="day-checkbox">
+                                <input type="checkbox" name="day" value="6"> Sat
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="weeklyOptions" class="recurring-options" style="display: none;">
+                        <label>Select day of the week:</label>
+                        <select id="weeklyDay">
+                            <option value="0">Sunday</option>
+                            <option value="1">Monday</option>
+                            <option value="2">Tuesday</option>
+                            <option value="3">Wednesday</option>
+                            <option value="4">Thursday</option>
+                            <option value="5">Friday</option>
+                            <option value="6">Saturday</option>
+                        </select>
+                    </div>
+
+                    <div id="monthlyOptions" class="recurring-options" style="display: none;">
+                        <label>Select dates of the month (comma-separated, 1-31):</label>
+                        <input type="text" id="monthlyDates" placeholder="e.g., 1,15,25">
+                    </div>
+
+                    <!-- Recurring Tasks List -->
+                    <div class="recurring-list" id="recurringList">
+                        <p class="empty-message">No recurring tasks. Add one to get started!</p>
+                    </div>
+                </section>
+
+                <!-- Important Dates Section -->
+                <section class="dates-section">
+                    <h2 class="section-title">📅 Important Dates</h2>
+                    
+                    <!-- Add Important Date Form -->
+                    <div class="add-date-form">
+                        <input type="text" id="dateInput" placeholder="Event name...">
+                        <input type="date" id="dateValue">
+                        <button onclick="addImportantDate()" class="add-btn">Add Date</button>
+                    </div>
+
+                    <!-- Important Dates List -->
+                    <div class="dates-list" id="datesList">
+                        <p class="empty-message">No important dates yet.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="member-script.js"></script>
+</body>
+</html>
