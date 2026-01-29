@@ -615,6 +615,7 @@ function addTask() {
     const input = document.getElementById('taskInput');
     if (input.value.trim()) {
         taskManager.addTask(input.value);
+        input.value = '';
         input.focus();
     }
 }
