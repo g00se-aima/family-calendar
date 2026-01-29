@@ -49,14 +49,17 @@ class TasksListManager {
 
     addItem(category) {
         const input = document.querySelector(`input[data-category="${category}"]`);
-        const text = input.value.trim();
+        const urgencyRadios = document.getElementsByName(`urgency-${category}`);
+        
+        if (!input || !input.value.trim()) return;
 
-        if (!text) return;
+        const urgency = Array.from(urgencyRadios).find(r => r.checked)?.value || 'normal';
 
         const item = {
             id: Date.now(),
             category: category,
-            text: text,
+            text: input.value,
+            urgency: urgency,
             completed: false,
             createdAt: new Date().toISOString()
         };
@@ -96,13 +99,19 @@ class TasksListManager {
             return;
         }
 
-        listDiv.innerHTML = categoryItems.map(item => `
-            <div class="item-row">
-                <input type="checkbox" class="item-checkbox" onchange="taskManager.completeItem(${item.id})" />
-                <span class="item-text">${escapeHtml(item.text)}</span>
-                <button class="delete-btn" onclick="taskManager.deleteItem(${item.id})">✕</button>
-            </div>
-        `).join('');
+        listDiv.innerHTML = categoryItems.map(item => {
+            const urgencyClass = item.urgency === 'urgent' ? 'urgent' : 'normal';
+            const urgencyIcon = item.urgency === 'urgent' ? '🔴' : '🟢';
+
+            return `
+                <div class="task-item ${urgencyClass}">
+                    <input type="checkbox" class="item-checkbox" onchange="taskManager.completeItem(${item.id})">
+                    <span class="item-text">${escapeHtml(item.text)}</span>
+                    <span class="urgency-badge">${urgencyIcon}</span>
+                    <button class="delete-btn" onclick="taskManager.deleteItem(${item.id})">×</button>
+                </div>
+            `;
+        }).join('');
     }
 
     renderAllCategories() {
@@ -114,13 +123,18 @@ class TasksListManager {
             const categoryItems = this.items.filter(i => i.category === cat.name);
             const itemsHtml = categoryItems.length === 0 
                 ? '<p class="empty-message">No tasks yet</p>'
-                : categoryItems.map(item => `
-                    <div class="item-row">
-                        <input type="checkbox" class="item-checkbox" onchange="taskManager.completeItem(${item.id})" />
-                        <span class="item-text">${escapeHtml(item.text)}</span>
-                        <button class="delete-btn" onclick="taskManager.deleteItem(${item.id})">✕</button>
-                    </div>
-                `).join('');
+                : categoryItems.map(item => {
+                    const urgencyClass = item.urgency === 'urgent' ? 'urgent' : 'normal';
+                    const urgencyIcon = item.urgency === 'urgent' ? '🔴' : '🟢';
+                    return `
+                        <div class="task-item ${urgencyClass}">
+                            <input type="checkbox" class="item-checkbox" onchange="taskManager.completeItem(${item.id})">
+                            <span class="item-text">${escapeHtml(item.text)}</span>
+                            <span class="urgency-badge">${urgencyIcon}</span>
+                            <button class="delete-btn" onclick="taskManager.deleteItem(${item.id})">×</button>
+                        </div>
+                    `;
+                }).join('');
 
             html += `
                 <section class="tasks-category">
@@ -128,6 +142,16 @@ class TasksListManager {
                     
                     <div class="add-item-form">
                         <input type="text" class="item-input" placeholder="Add task..." data-category="${cat.name}">
+                        <div class="urgency-selector">
+                            <label class="urgency-option">
+                                <input type="radio" name="urgency-${cat.name}" value="urgent" checked>
+                                <span class="urgency-label">🔴 Urgent</span>
+                            </label>
+                            <label class="urgency-option">
+                                <input type="radio" name="urgency-${cat.name}" value="normal">
+                                <span class="urgency-label">🟢 Normal</span>
+                            </label>
+                        </div>
                         <button class="add-btn" onclick="taskManager.addItem('${cat.name}')">Add</button>
                     </div>
 
