@@ -330,8 +330,16 @@ class MemberTaskManager {
 
     checkMediaTime() {
         const today = new Date();
-        const todayDayOfWeek = today.getDay();
+        const todayDayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
         const todayDateOfMonth = today.getDate();
+        const currentHour = today.getHours();
+
+        // Check if media time is allowed based on time and day
+        // Disallowed after 19:00 (7 PM) on Monday (1) to Thursday (4)
+        if (currentHour >= 19 && todayDayOfWeek >= 1 && todayDayOfWeek <= 4) {
+            alert(`⏰ Media time is only allowed before 19:00 (7 PM) on weekdays!\n\nCurrent time: ${currentHour}:${String(today.getMinutes()).padStart(2, '0')}`);
+            return;
+        }
 
         // Check if media time is used up for the week
         if (this.mediaTimeUsage.count >= 3) {
