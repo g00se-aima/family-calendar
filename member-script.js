@@ -233,6 +233,10 @@ class MemberTaskManager {
             this.completedToday.push(taskId);
             this.saveData();
             this.renderTodaysTasks();
+            // Update badge on home page
+            if (window.updateTaskBadges) {
+                window.updateTaskBadges();
+            }
         }
     }
 
